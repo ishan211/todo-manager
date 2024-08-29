@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo Manager - Version 10</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+        }
+        input[type="text"], input[type="password"], input[type="date"], input[type="time"], select, button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            background-color: #fafafa;
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        li input[type="text"], li input[type="date"], li input[type="time"], li select {
+            flex: 1;
+            margin-right: 10px;
+            padding: 5px;
+        }
+        li button {
+            width: auto;
+            margin-left: 5px;
+            background-color: #007bff;
+            color: white;
+        }
+        li button.delete {
+            background-color: #ff4444;
+        }
+        li button:hover {
+            background-color: #0056b3;
+        }
+        li button.delete:hover {
+            background-color: #cc0000;
+        }
+        .list-selector, .category-selector {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        .list-selector select, .category-selector select {
+            width: 75%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        .list-selector button, .category-selector button {
+            width: 20%;
+            background-color: #17a2b8;
+            border-color: #17a2b8;
+            color: white;
+            border: none;
+        }
+        .list-selector button:hover, .category-selector button:hover {
+            background-color: #138496;
+        }
+        .auth-container {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Todo Manager</h1>
+
+    <div class="auth-container" id="authContainer">
+        <div id="loginForm">
+            <input type="text" id="username" placeholder="Username">
+            <input type="password" id="password" placeholder="Password">
+            <button id="loginButton">Login</button>
+            <button id="registerButton">Register</button>
+        </div>
+        <div id="logoutForm" style="display: none;">
+            <p id="welcomeMessage"></p>
+            <button id="logoutButton">Logout</button>
+        </div>
+    </div>
+
+    <div class="list-selector" id="listSelector" style="display: none;">
+        <select id="listSelect"></select>
+        <button id="newListButton">New List</button>
+    </div>
+
+    <div class="category-selector" id="categorySelector" style="display: none;">
+        <select id="categoryFilter">
+            <option value="All">All Categories</option>
+            <option value="Work">Work</option>
+            <option value="Personal">Personal</option>
+            <option value="Shopping">Shopping</option>
+        </select>
+    </div>
+
+    <input type="text" id="todoInput" placeholder="Enter todo" style="display: none;">
+    <input type="date" id="dueDateInput" style="display: none;">
+    <input type="time" id="dueTimeInput" style="display: none;">
+    <select id="categoryInput" style="display: none;">
+        <option value="Work">Work</option>
+        <option value="Personal">Personal</option>
+        <option value="Shopping">Shopping</option>
+    </select>
+    <button id="addTodoButton" style="display: none;">Add Todo</button>
+    <ul id="todoList"></ul>
+</div>
+
+<!-- External JavaScript file -->
+<script src="script.js"></script>
+
+</body>
+</html>
